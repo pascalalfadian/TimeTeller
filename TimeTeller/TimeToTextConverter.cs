@@ -22,7 +22,7 @@ namespace TimeTeller
             }
             else if (now.Minute == 1)
             {
-                return "Now is 1 minute past " + Now.Hour + ".";
+                return "Now is 1 minute past " + now.Hour + ".";
             }
             else
             {
