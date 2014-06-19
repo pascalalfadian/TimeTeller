@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.0">
+  <CommandSet xml:lang="en-US">
+    <CommandPrefix>Hey</CommandPrefix>
+    <Example>what time is it?</Example>
+
+    <Command Name="Now">
+      <Example>now</Example>
+      <ListenFor>what time [is it]?</ListenFor>
+      <ListenFor>now</ListenFor>
+      <Feedback>Telling you time...</Feedback>
+      <Navigate />
+    </Command>
+  </CommandSet>
+</VoiceCommands>

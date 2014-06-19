@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using TimeTeller.Resources;
 using Windows.Phone.Speech.Synthesis;
+using Windows.Phone.Speech.VoiceCommands;
 
 namespace TimeTeller
 {
@@ -18,9 +19,14 @@ namespace TimeTeller
         public MainPage()
         {
             InitializeComponent();
+            InitializeVoiceCommand();
             UpdateSpokenText();
             SpeakTime();
-            // Application.Current.Terminate();
+        }
+
+        private async void InitializeVoiceCommand()
+        {
+            await VoiceCommandService.InstallCommandSetsFromFileAsync(new Uri("ms-appx:///TimeTellerVCD.xml"));
         }
 
         private void UpdateSpokenText()

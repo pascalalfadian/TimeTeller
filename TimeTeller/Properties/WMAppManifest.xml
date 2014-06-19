@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{433a9385-6a74-44d3-bcf6-fa6527b8191a}" Title="Time Teller" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TimeTeller author" Description="Time Teller simply tells the time of day." Publisher="TimeTeller" PublisherID="{14dc8529-31d7-4225-9952-bfe2edf04568}">
+  <App xmlns="" ProductID="{433a9385-6a74-44d3-bcf6-fa6527b8191a}" Title="Hey" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TimeTeller author" Description="Hey a.k.a. Time Teller simply tells the time of day. Access this app by long-pressing the Start button and saying &quot;Hey, what time is it?&quot;. Supports English-United States language." Publisher="TimeTeller" PublisherID="{14dc8529-31d7-4225-9952-bfe2edf04568}">
     <IconPath IsRelative="true" IsResource="false">TimeTellerIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
       <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
       <Capability Name="ID_CAP_SPEECH_RECOGNITION" />
+      <Capability Name="ID_CAP_MICROPHONE" />
+      <Capability Name="ID_CAP_NETWORKING" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
@@ -17,7 +19,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">TimeTellerIcon.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">TimeTellerIcon.png</BackgroundImageURI>
-          <Title>TimeTeller</Title>
+          <Title>Hey</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
