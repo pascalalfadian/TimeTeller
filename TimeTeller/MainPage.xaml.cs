@@ -25,8 +25,8 @@ namespace TimeTeller
 
         private void UpdateSpokenText()
         {
-            DateTime Now = DateTime.Now;
-            SpokenText.Text = "Now is " + Now.Minute + " minutes past " + Now.Hour + ".";
+            TimeToTextConverter converter = new TimeToTextConverter(DateTime.Now);
+            SpokenText.Text = converter.getCurrentTime();
         }
 
         private async void SpeakTime()
