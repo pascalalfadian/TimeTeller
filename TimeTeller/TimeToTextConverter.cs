@@ -18,16 +18,21 @@ namespace TimeTeller
         {
             if (now.Minute == 0)
             {
-                return "Now is " + now.Hour + " o'clock.";
+                return now.Hour + " o'clock.";
             }
             else if (now.Minute == 1)
             {
-                return "Now is 1 minute past " + now.Hour + ".";
+                return "1 minute past " + now.Hour + ".";
             }
             else
             {
-                return "Now is " + now.Minute + " minutes past " + now.Hour + ".";
+                return now.Minute + " minutes past " + now.Hour + ".";
             }
+        }
+
+        public string getCurrentDate()
+        {
+            return now.ToLongDateString() + ".";
         }
     }
 }

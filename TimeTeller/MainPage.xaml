@@ -41,17 +41,30 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Time Teller" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Now" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0" FontSize="48">
+        		<Run Text="HEY"/>
+            </TextBlock>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="SpokenText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="597" Width="456">
-            	<Run Text="Now"/>
-            	<LineBreak/>
-            	<Run/>
+            <TextBlock x:Name="SpokenText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="456" Margin="0,0,0,86">
+        		<Run Text="Hey Time Teller is a simple app that tells you the current time or day."/>
+        		<Run Text=" Actually this is not the way to use this app. Read on..."/>
+        		<LineBreak/>
+        		<LineBreak/>
+        		<Run Text="Ever wonder what is the current time when you are awake at dawn? Just press the Start Button and say 'Hey, what time is it' and this app will tell you the current time."/>
+        		<LineBreak/>
+        		<LineBreak/>
+        		<Run Text="Then you can go back to sleep."/>
+        		<LineBreak/>
+        		<Run Text="Hey supports the following commands:"/>
+        		<LineBreak/>
+        		<Run Text="  'What time is it' or 'now'"/>
+        		<LineBreak/>
+        		<Run Text="  'What day is today' or just 'today'"/>
             </TextBlock>
+            <Button x:Name="sponsorButton" Content="Sponsored by http://kiri.travel" HorizontalAlignment="Left" Margin="10,578,-10,0" VerticalAlignment="Top" Height="71" Width="456" Foreground="White" BorderThickness="0" Click="sponsorButton_Click"/>
 
         </Grid>
 

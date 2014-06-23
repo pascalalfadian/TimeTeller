@@ -6,10 +6,16 @@
     <Example>what time is it?</Example>
 
     <Command Name="Now">
-      <Example>now</Example>
+      <Example>what time is it?</Example>
       <ListenFor>what time [is it]?</ListenFor>
       <ListenFor>now</ListenFor>
-      <Feedback>Telling you time...</Feedback>
+      <Feedback>Now is...</Feedback>
+      <Navigate />
+    </Command>
+    <Command Name="Today">
+      <Example>what day is today?</Example>
+      <ListenFor>[what day is] today?</ListenFor>
+      <Feedback>Today is...</Feedback>
       <Navigate />
     </Command>
   </CommandSet>

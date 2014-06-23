@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using TimeTeller.Resources;
 using Windows.Phone.Speech.Synthesis;
 using Windows.Phone.Speech.VoiceCommands;
+using Microsoft.Phone.Tasks;
 
 namespace TimeTeller
 {
@@ -20,19 +21,11 @@ namespace TimeTeller
         {
             InitializeComponent();
             InitializeVoiceCommand();
-            UpdateSpokenText();
-            SpeakTime();
         }
 
         private async void InitializeVoiceCommand()
         {
             await VoiceCommandService.InstallCommandSetsFromFileAsync(new Uri("ms-appx:///TimeTellerVCD.xml"));
-        }
-
-        private void UpdateSpokenText()
-        {
-            TimeToTextConverter converter = new TimeToTextConverter(DateTime.Now);
-            SpokenText.Text = converter.getCurrentTime();
         }
 
         private async void SpeakTime()
@@ -52,6 +45,51 @@ namespace TimeTeller
             {
                 Application.Current.Terminate();
             }
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            // Is this a new activation or a resurrection from tombstone?
+            if (e.NavigationMode == System.Windows.Navigation.NavigationMode.New)
+            {
+
+                // Was the app launched using a voice command?
+                if (NavigationContext.QueryString.ContainsKey("voiceCommandName"))
+                {
+
+                    // If so, get the name of the voice command.
+                    string voiceCommandName = NavigationContext.QueryString["voiceCommandName"];
+                    TimeToTextConverter converter = new TimeToTextConverter(DateTime.Now);
+
+                    // Define app actions for each voice command name.
+                    switch (voiceCommandName)
+                    {
+                        case "Now":
+                            SpokenText.Text = converter.getCurrentTime();
+                            break;
+                        case "Today":
+                            SpokenText.Text = converter.getCurrentDate();
+                            break;
+                        default:
+                            SpokenText.Text = "Sorry, please try again with now or today.";
+                            break;
+                    }
+                    SpeakTime();
+                }
+                else
+                {
+                    // TODO Go to settings
+                }
+            }
+        }
+
+        private void sponsorButton_Click(object sender, RoutedEventArgs e)
+        {
+            WebBrowserTask webBrowserTask = new WebBrowserTask();
+            webBrowserTask.Uri = new Uri("http://kiri.travel", UriKind.Absolute);
+            webBrowserTask.Show();
         }
     }
 }
